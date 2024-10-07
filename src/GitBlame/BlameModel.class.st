@@ -32,6 +32,37 @@ BlameModel >> commitAt: aCommitish [
 ]
 
 { #category : #'as yet unclassified' }
+BlameModel >> gtOverview: aView [
+	<gtView>
+	^(aView mondrian)
+			title: 'Overview';
+		priority: 20;
+		painting: [ :aMondrian |
+			aMondrian nodes
+				stencil: [ :f | 
+					BlElement new 
+						constraintsDo: [:c |
+							c horizontal fitContent.
+							c vertical fitContent];
+						zIndex: 10;
+							border: (BlBorder paint: (Color black alpha: 0.5) width: 2)];
+				with: files forEach: [:file |
+					aMondrian nodes
+						stencil: [ :f | 
+							BlElement new 
+							size: 5@5;
+							zIndex: 10;
+							border: (BlBorder paint: (Color green alpha: 0.5) width: 1)];
+					with: file commits.
+					aMondrian layout grid].
+
+					
+			aMondrian layout grid.
+		]
+
+]
+
+{ #category : #'as yet unclassified' }
 BlameModel >> initialize [
 	files := OrderedCollection new.
 	commits := Dictionary new.

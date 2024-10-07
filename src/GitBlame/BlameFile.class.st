@@ -25,6 +25,11 @@ BlameFile >> blame: lines [
 ]
 
 { #category : #'as yet unclassified' }
+BlameFile >> commits [
+	^commits
+]
+
+{ #category : #'as yet unclassified' }
 BlameFile >> fileReference [
 	^ fileReference
 ]

@@ -4,7 +4,9 @@ Class {
 	#instVars : [
 		'fileReference',
 		'blame',
-		'model'
+		'model',
+		'commits',
+		'chunks'
 	],
 	#category : #'GitBlame-Model'
 }
@@ -32,6 +34,12 @@ BlameFile >> fileReference: aFileReference [
 	fileReference := aFileReference
 ]
 
+{ #category : #'as yet unclassified' }
+BlameFile >> initialize [
+	commits := IdentitySet new.
+	chunks := IdentitySet new.
+]
+
 { #category : #accessing }
 BlameFile >> model: aModel [ 
 	model := aModel
@@ -44,5 +52,7 @@ BlameFile >> parse [
 		commit := model commitAt: (line first: 12).
 		chunk := commit chunkFor: fileReference.
 		chunk lines add: index.
+		commits add: commit.
+		chunks add: chunk.
 		]
 ]

@@ -36,3 +36,13 @@ BlameFile >> fileReference: aFileReference [
 BlameFile >> model: aModel [ 
 	model := aModel
 ]
+
+{ #category : #'as yet unclassified' }
+BlameFile >> parse [
+	| commit chunk |
+	blame lines withIndexDo: [ :line :index|
+		commit := model commitAt: (line first: 12).
+		chunk := commit chunkFor: fileReference.
+		chunk lines add: index.
+		]
+]

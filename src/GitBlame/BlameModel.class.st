@@ -3,7 +3,9 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'root',
-		'files'
+		'files',
+		'commits',
+		'chunks'
 	],
 	#category : #'GitBlame-Model'
 }
@@ -21,8 +23,24 @@ BlameModel >> addFilesMatching: aString [
 ]
 
 { #category : #'as yet unclassified' }
+BlameModel >> commitAt: aCommitish [
+	^commits at: aCommitish ifAbsentPut: [
+		BlameCommit new
+			model: self;
+			commitish: aCommitish;
+			yourself]
+]
+
+{ #category : #'as yet unclassified' }
 BlameModel >> initialize [
-	files := OrderedCollection new
+	files := OrderedCollection new.
+	commits := Dictionary new.
+	
+]
+
+{ #category : #accessing }
+BlameModel >> parseBlameFiles [
+	files do: [:each | each parse]
 ]
 
 { #category : #accessing }

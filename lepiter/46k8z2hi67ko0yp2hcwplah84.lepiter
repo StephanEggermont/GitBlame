@@ -66,14 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-07T17:19:48.764187+02:00"
+						"dateAndTimeString" : "2024-10-07T17:29:53.8757+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "Yy6YqkTgDQCMfyVYBdikRg=="
 				},
-				"code" : "rootDirectory := '/home/stephan/Documents/vscode/vscode/src/vs/base/common' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\r"
+				"code" : "rootDirectory := '/home/stephan/Documents/vscode/vscode/src/vs/base/common' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles"
 			},
 			{
 				"__type" : "textSnippet",

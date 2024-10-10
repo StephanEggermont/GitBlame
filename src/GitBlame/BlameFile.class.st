@@ -53,8 +53,11 @@ BlameFile >> model: aModel [
 { #category : #'as yet unclassified' }
 BlameFile >> parse [
 	| commit chunk |
-	blame lines withIndexDo: [ :line :index|
-		commit := model commitAt: (line first: 12).
+	blame lines withIndexDo: [ :line :index| |parts|
+		parts := line splitOn: Character tab.
+		commit := model commitAt: parts first.
+		commit author: (parts second allButFirst trimBoth).
+		commit dateTime: parts third trimBoth.
 		chunk := commit chunkFor: fileReference.
 		chunk lines add: index.
 		commits add: commit.

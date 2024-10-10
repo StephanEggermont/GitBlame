@@ -5,7 +5,8 @@ Class {
 		'root',
 		'files',
 		'commits',
-		'chunks'
+		'chunks',
+		'authors'
 	],
 	#category : #'GitBlame-Model'
 }
@@ -20,6 +21,16 @@ BlameModel class >> on: rootDirectory [
 { #category : #accessing }
 BlameModel >> addFilesMatching: aString [ 
 	files addAll: ((root allChildrenMatching: aString) collect: [: each| BlameFile on: each in: self])
+]
+
+{ #category : #accessing }
+BlameModel >> authors [
+	^ authors
+]
+
+{ #category : #accessing }
+BlameModel >> authors: anObject [
+	authors := anObject
 ]
 
 { #category : #'as yet unclassified' }
@@ -48,9 +59,10 @@ BlameModel >> gtOverview: aView [
 							border: (BlBorder paint: (Color black alpha: 0.5) width: 2)];
 				with: files forEach: [:file |
 					aMondrian nodes
-						stencil: [ :f | 
+						stencil: [ :c | 
 							BlElement new 
-							size: 5@5;
+							height: (c chunks size min: 20);
+							width: 5;
 							zIndex: 10;
 							border: (BlBorder paint: (Color green alpha: 0.5) width: 1)];
 					with: file commits.
@@ -86,7 +98,7 @@ BlameModel >> runBlame [
 			(GtSubprocessWithInMemoryOutput new
 				workingDirectory: root;
 				command: 'git';
-				arguments: {'blame'. each fileReference fullName};
+				arguments: {'blame'. '-c'. each fileReference fullName};
 				runAndWait;
 				stdout)]
 

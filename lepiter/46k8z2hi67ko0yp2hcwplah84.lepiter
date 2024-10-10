@@ -66,14 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-07T17:29:53.8757+02:00"
+						"dateAndTimeString" : "2024-10-10T14:51:44.009593+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "Yy6YqkTgDQCMfyVYBdikRg=="
 				},
-				"code" : "rootDirectory := '/home/stephan/Documents/vscode/vscode/src/vs/base/common' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles"
+				"code" : "rootDirectory := '/home/stephan/Documents/vscode/vscode/src/vs/base' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles"
 			},
 			{
 				"__type" : "textSnippet",
@@ -179,6 +179,40 @@
 					"uidString" : "R3DqZkXgDQCUghxrBdikRg=="
 				},
 				"code" : "gitProcess := GtSubprocessWithInMemoryOutput new\r\tcommand: 'git';\r\targuments: {'blame'.'/home/stephan/Documents/vscode/vscode/src/vs/base/common/sequence.ts'};\r\tworkingDirectory: rootDirectory;\r\tyourself.\rgitProcess runAndWait.\r\r\t"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-10T15:02:52.12574+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-10T15:02:56.999768+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "hb+iuYDgDQCBqNWbB4/kew=="
+				},
+				"code" : "Smalltalk garbageCollect"
 			}
 		]
 	},

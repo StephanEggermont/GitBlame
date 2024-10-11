@@ -93,13 +93,16 @@ BlameModel >> root: rootDirectory [
 
 { #category : #accessing }
 BlameModel >> runBlame [
+	| doneNr|
+	doneNr := 0.
 	files do: [:each |
-		each blame: 
+		[each blame: 
 			(GtSubprocessWithInMemoryOutput new
 				workingDirectory: root;
 				command: 'git';
 				arguments: {'blame'. '-c'. each fileReference fullName};
 				runAndWait;
-				stdout)]
-
+				stdout)] asAsyncPromise then: [doneNr := doneNr+1]].
+ 	[0.1 seconds wait] doWhileTrue: [doneNr < files size].
+				
 ]

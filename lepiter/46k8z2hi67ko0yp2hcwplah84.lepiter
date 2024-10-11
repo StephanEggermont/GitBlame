@@ -66,14 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-10T16:14:41.291088+02:00"
+						"dateAndTimeString" : "2024-10-11T16:15:37.030669+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "Yy6YqkTgDQCMfyVYBdikRg=="
 				},
-				"code" : "[rootDirectory := '/home/stephan/Documents/vscode/vscode/src' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles] timeProfile"
+				"code" : "[rootDirectory := '/home/stephan/Documents/vscode/vscode/src/' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles] timeToRun"
 			},
 			{
 				"__type" : "textSnippet",
@@ -205,14 +205,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-10T15:02:56.999768+02:00"
+						"dateAndTimeString" : "2024-10-11T16:15:19.518927+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "hb+iuYDgDQCBqNWbB4/kew=="
 				},
-				"code" : "Smalltalk garbageCollect"
+				"code" : "[Smalltalk garbageCollect] timeToRun"
 			}
 		]
 	},

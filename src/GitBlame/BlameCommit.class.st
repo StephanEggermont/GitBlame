@@ -60,6 +60,12 @@ BlameCommit >> dateTime: anObject [
 ]
 
 { #category : #'as yet unclassified' }
+BlameCommit >> fillAuthor [
+	|auth|
+	auth := model 
+]
+
+{ #category : #'as yet unclassified' }
 BlameCommit >> initialize [
 	chunks := Dictionary new
 ]

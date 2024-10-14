@@ -19,6 +19,11 @@ BlameFile class >> on: aFileReference in: aModel [
 		yourself
 ]
 
+{ #category : #accessing }
+BlameFile >> blame [
+	^ blame
+]
+
 { #category : #'as yet unclassified' }
 BlameFile >> blame: lines [
 	blame := lines
@@ -52,15 +57,17 @@ BlameFile >> model: aModel [
 
 { #category : #'as yet unclassified' }
 BlameFile >> parse [
-	| commit chunk |
+	| commit chunk author |
 	blame lines withIndexDo: [ :line :index| |parts|
 		parts := line splitOn: Character tab.
 		commit := model commitAt: parts first.
-		commit author: (parts second allButFirst trimBoth).
+		author := model authorAt: (parts second allButFirst trimBoth).
+		commit author: author.
 		commit dateTime: parts third trimBoth.
 		chunk := commit chunkFor: fileReference.
 		chunk lines add: index.
 		commits add: commit.
+		author commits add: commit.
 		chunks add: chunk.
 		]
 ]

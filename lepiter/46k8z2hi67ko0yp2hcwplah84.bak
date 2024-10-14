@@ -66,14 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-11T16:06:48.957914+02:00"
+						"dateAndTimeString" : "2024-10-14T14:26:28.07028+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "Yy6YqkTgDQCMfyVYBdikRg=="
 				},
-				"code" : "[rootDirectory := '/home/stephan/Documents/vscode/vscode/src/' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles] timeProfile"
+				"code" : "[rootDirectory := '/home/stephan/Documents/vscode/vscode/src/' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles.\rmodel assignColors] timeToRun"
 			},
 			{
 				"__type" : "textSnippet",
@@ -111,6 +111,74 @@
 					"__type" : "textStyle"
 				},
 				"string" : ""
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-11T19:00:20.606449+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-11T19:00:22.005642+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "VK7AKJjgDQCy5SmeDXLy3w=="
+				},
+				"code" : "GtRemoteRunner default managerStartupAndShutdown workerManager workerCountCalculator"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-11T16:57:41.628257+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-14T14:02:44.616758+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "b5YfcpbgDQCknqSYCXbTcg=="
+				},
+				"code" : "AsyncFutureThreadPool current maxWorkers: 48"
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -205,14 +273,48 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-11T16:15:19.33995+02:00"
+						"dateAndTimeString" : "2024-10-11T17:41:59.874751+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "hb+iuYDgDQCBqNWbB4/kew=="
 				},
-				"code" : "[Smalltalk garbageCollect] timeToRu"
+				"code" : "Smalltalk garbageCollect"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-14T14:21:37.235899+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-14T14:25:10.200609+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "BW18ndDgDQCK4IL9DXLy3w=="
+				},
+				"code" : "Color wheel:48"
 			}
 		]
 	},

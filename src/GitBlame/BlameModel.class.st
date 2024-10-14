@@ -24,6 +24,25 @@ BlameModel >> addFilesMatching: aString [
 ]
 
 { #category : #accessing }
+BlameModel >> assignColors [
+	|colors|
+	colors := Color wheel: 50.
+	authors do: [:author | author color: Color white].
+	((authors sorted: [:a :b | a commits size > b commits size]) first: 50) 
+		withIndexDo: [:author :index|
+			author color: (colors at: index)]
+]
+
+{ #category : #'as yet unclassified' }
+BlameModel >> authorAt: anAuthorName [
+	^authors at: anAuthorName ifAbsentPut: [
+		BlameAuthor new
+			model: self;
+			authorName: anAuthorName;
+			yourself]
+]
+
+{ #category : #accessing }
 BlameModel >> authors [
 	^ authors
 ]
@@ -57,19 +76,19 @@ BlameModel >> gtOverview: aView [
 							c vertical fitContent];
 						zIndex: 10;
 							border: (BlBorder paint: (Color black alpha: 0.5) width: 2)];
-				with: files forEach: [:file |
+				with: self largestFilesFirst forEach: [:file |
 					aMondrian nodes
 						stencil: [ :c | 
 							BlElement new 
-							height: (c chunks size min: 20);
-							width: 5;
+							height: 2;
+							width: 2;
 							zIndex: 10;
-							border: (BlBorder paint: (Color green alpha: 0.5) width: 1)];
+							border: (BlBorder paint: (c author color) width: 1)];
 					with: file commits.
 					aMondrian layout grid].
 
 					
-			aMondrian layout grid.
+			aMondrian layout rectanglePack.
 		]
 
 ]
@@ -78,7 +97,14 @@ BlameModel >> gtOverview: aView [
 BlameModel >> initialize [
 	files := OrderedCollection new.
 	commits := Dictionary new.
+	authors := Dictionary new
 	
+]
+
+{ #category : #'as yet unclassified' }
+BlameModel >> largestFilesFirst [
+	^files sorted: [:a :b | 
+		a blame lines size > b blame lines size]
 ]
 
 { #category : #accessing }

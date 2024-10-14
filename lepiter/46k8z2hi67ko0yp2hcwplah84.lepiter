@@ -66,14 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-11T16:15:37.030669+02:00"
+						"dateAndTimeString" : "2024-10-14T14:26:28.07028+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "Yy6YqkTgDQCMfyVYBdikRg=="
 				},
-				"code" : "[rootDirectory := '/home/stephan/Documents/vscode/vscode/src/' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles] timeToRun"
+				"code" : "[rootDirectory := '/home/stephan/Documents/vscode/vscode/src/' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles.\rmodel assignColors] timeToRun"
 			},
 			{
 				"__type" : "textSnippet",
@@ -126,7 +126,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-07T15:46:12.401963+02:00"
+						"dateAndTimeString" : "2024-10-11T19:00:20.606449+02:00"
 					}
 				},
 				"editEmail" : {
@@ -137,14 +137,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-07T16:13:41.545902+02:00"
+						"dateAndTimeString" : "2024-10-11T19:00:22.005642+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "F7AZ+0TgDQCRYZHFBdikRg=="
+					"uidString" : "VK7AKJjgDQCy5SmeDXLy3w=="
 				},
-				"code" : "git := IceGitCliPlatform current executor.\rgit workingDirectory: rootDirectory.\rps := git git arg: 'blame /home/stephan/Documents/vscode/vscode/CodeQL.yml'\t.\rps output"
+				"code" : "GtRemoteRunner default managerStartupAndShutdown workerManager workerCountCalculator"
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -160,7 +160,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-07T16:16:21.244555+02:00"
+						"dateAndTimeString" : "2024-10-11T16:57:41.628257+02:00"
 					}
 				},
 				"editEmail" : {
@@ -171,14 +171,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-07T17:07:54.368143+02:00"
+						"dateAndTimeString" : "2024-10-14T14:02:44.616758+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "R3DqZkXgDQCUghxrBdikRg=="
+					"uidString" : "b5YfcpbgDQCknqSYCXbTcg=="
 				},
-				"code" : "gitProcess := GtSubprocessWithInMemoryOutput new\r\tcommand: 'git';\r\targuments: {'blame'.'/home/stephan/Documents/vscode/vscode/src/vs/base/common/sequence.ts'};\r\tworkingDirectory: rootDirectory;\r\tyourself.\rgitProcess runAndWait.\r\r\t"
+				"code" : "AsyncFutureThreadPool current maxWorkers: 48"
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -205,14 +205,48 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-11T16:15:19.518927+02:00"
+						"dateAndTimeString" : "2024-10-11T17:41:59.874751+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "hb+iuYDgDQCBqNWbB4/kew=="
 				},
-				"code" : "[Smalltalk garbageCollect] timeToRun"
+				"code" : "Smalltalk garbageCollect"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-14T14:21:37.235899+02:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-14T14:25:10.200609+02:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "BW18ndDgDQCK4IL9DXLy3w=="
+				},
+				"code" : "Color wheel:48"
 			}
 		]
 	},

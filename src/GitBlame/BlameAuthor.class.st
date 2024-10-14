@@ -5,7 +5,8 @@ Class {
 		'model',
 		'authorName',
 		'email',
-		'commits'
+		'commits',
+		'color'
 	],
 	#category : #'GitBlame-Model'
 }
@@ -18,6 +19,16 @@ BlameAuthor >> authorName [
 { #category : #accessing }
 BlameAuthor >> authorName: anObject [
 	authorName := anObject
+]
+
+{ #category : #accessing }
+BlameAuthor >> color [
+	^ color
+]
+
+{ #category : #accessing }
+BlameAuthor >> color: anObject [
+	color := anObject
 ]
 
 { #category : #accessing }

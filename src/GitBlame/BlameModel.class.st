@@ -26,9 +26,9 @@ BlameModel >> addFilesMatching: aString [
 { #category : #accessing }
 BlameModel >> assignColors [
 	|colors|
-	colors := Color wheel: 50.
+	colors := Color wheel: (50 min: authors size).
 	authors do: [:author | author color: Color white].
-	((authors sorted: [:a :b | a commits size > b commits size]) first: 50) 
+	((authors sorted: [:a :b | a commits size > b commits size]) first: (50 min: authors size))
 		withIndexDo: [:author :index|
 			author color: (colors at: index)]
 ]

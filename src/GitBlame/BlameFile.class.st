@@ -56,6 +56,12 @@ BlameFile >> model: aModel [
 ]
 
 { #category : #'as yet unclassified' }
+BlameFile >> newestCommitsFirst [
+		^commits sorted: [:a :b | 
+		a dateTime > b dateTime]
+]
+
+{ #category : #'as yet unclassified' }
 BlameFile >> parse [
 	| commit chunk author |
 	blame lines withIndexDo: [ :line :index| |parts|

@@ -66,14 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-14T14:43:35.057601+02:00"
+						"dateAndTimeString" : "2024-10-14T16:47:15.94971+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "Yy6YqkTgDQCMfyVYBdikRg=="
 				},
-				"code" : "rootDirectory := '/home/stephan/Documents/vscode/vscode/src/' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles.\rmodel assignColors"
+				"code" : "[rootDirectory := '/home/stephan/Documents/vscode/vscode/src/' asFileReference.\rmodel := BlameModel on: rootDirectory.\rmodel addFilesMatching: '*.ts'.\rmodel runBlame.\rmodel parseBlameFiles.\rmodel assignColors] timeToRun"
 			},
 			{
 				"__type" : "textSnippet",
@@ -137,14 +137,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-10-14T14:02:44.616758+02:00"
+						"dateAndTimeString" : "2024-10-14T17:04:53.375613+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "b5YfcpbgDQCknqSYCXbTcg=="
 				},
-				"code" : "AsyncFutureThreadPool current maxWorkers: 48"
+				"code" : "AsyncFutureThreadPool current maxWorkers: 24"
 			},
 			{
 				"__type" : "pharoSnippet",

@@ -62,6 +62,38 @@ BlameModel >> commitAt: aCommitish [
 ]
 
 { #category : #'as yet unclassified' }
+BlameModel >> gtHundredLargest: aView [
+	<gtView>
+	^(aView mondrian)
+			title: '100 largest';
+		priority: 30;
+		painting: [ :aMondrian |
+			aMondrian nodes
+				stencil: [ :f | 
+					BlElement new 
+						constraintsDo: [:c |
+							c horizontal fitContent.
+							c vertical fitContent];
+						zIndex: 10;
+							border: (BlBorder paint: (Color black alpha: 0.5) width: 1)];
+				with: (self largestFilesFirst first: (100 min: files size))
+					forEach: [:file |
+					aMondrian nodes
+						stencil: [ :c | 
+							BlElement new 
+							height: (((c chunkFor: file fileReference) lines size * 2 ln min: 20) max: 2);
+							width: ((c chunks size * 2 ln min: 20) max: 2);
+							zIndex: 10;
+							background: (c author color)];
+					with: file newestCommitsFirst.
+					aMondrian layout grid].
+
+					
+			aMondrian layout rectanglePack.
+		]
+]
+
+{ #category : #'as yet unclassified' }
 BlameModel >> gtOverview: aView [
 	<gtView>
 	^(aView mondrian)
@@ -75,7 +107,7 @@ BlameModel >> gtOverview: aView [
 							c horizontal fitContent.
 							c vertical fitContent];
 						zIndex: 10;
-							border: (BlBorder paint: (Color black alpha: 0.5) width: 2)];
+							border: (BlBorder paint: (Color black alpha: 0.5) width: 1)];
 				with: self largestFilesFirst forEach: [:file |
 					aMondrian nodes
 						stencil: [ :c | 
@@ -84,7 +116,7 @@ BlameModel >> gtOverview: aView [
 							width: 2;
 							zIndex: 10;
 							border: (BlBorder paint: (c author color) width: 1)];
-					with: file commits.
+					with: file newestCommitsFirst.
 					aMondrian layout grid].
 
 					

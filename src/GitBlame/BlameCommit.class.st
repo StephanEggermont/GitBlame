@@ -40,6 +40,18 @@ BlameCommit >> chunks: anObject [
 	chunks := anObject
 ]
 
+{ #category : #'as yet unclassified' }
+BlameCommit >> commitColor [
+	"Some indicators that a commit requires extra attention"
+	(chunks size > 50) ifTrue: [^Color red].
+	((chunks sum: [:c | c lines size]) > 1000 ) ifTrue: [^Color red].
+	(chunks size > 20) ifTrue: [^Color orange].
+	((chunks sum: [:c | c lines size]) > 200 ) ifTrue: [^Color orange].
+	(chunks size > 5) ifTrue: [^Color yellow].
+	((chunks sum: [:c | c lines size]) > 50 ) ifTrue: [^Color yellow].
+	^Color green	
+]
+
 { #category : #accessing }
 BlameCommit >> commitish [
 	^ commitish

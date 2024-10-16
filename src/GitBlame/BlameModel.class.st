@@ -125,6 +125,36 @@ BlameModel >> gtOverview: aView [
 ]
 
 { #category : #'as yet unclassified' }
+BlameModel >> gtTopAuthors: aView [
+	<gtView>
+	^(aView mondrian)
+			title: '50 authors';
+		priority: 40;
+		painting: [ :aMondrian |
+			aMondrian nodes
+				stencil: [ :author | 
+					BlElement new 
+						constraintsDo: [:c |
+							c horizontal fitContent.
+							c vertical fitContent];
+						zIndex: 10;
+							border: (BlBorder paint: author color width: 1)];
+				with: (self topAuthors)
+					forEach: [:author |
+					aMondrian nodes
+						stencil: [ :commit | 
+							BlElement new 
+							height: (((commit chunks sum: [:c | c lines size]) * 2 ln min: 20) max: 2);
+							width: ((commit chunks size * 2 ln min: 20) max: 2);
+							zIndex: 10;
+							background: commit commitColor];
+					with: author newestCommitsFirst.
+					aMondrian layout grid].
+			aMondrian layout rectanglePack.
+		]
+]
+
+{ #category : #'as yet unclassified' }
 BlameModel >> initialize [
 	files := OrderedCollection new.
 	commits := Dictionary new.
@@ -162,4 +192,9 @@ BlameModel >> runBlame [
 				stdout)] asAsyncPromise then: [doneNr := doneNr+1]].
  	[0.1 seconds wait] doWhileTrue: [doneNr < files size].
 				
+]
+
+{ #category : #'as yet unclassified' }
+BlameModel >> topAuthors [
+	^authors select: [:each | each color  ~= Color white]
 ]

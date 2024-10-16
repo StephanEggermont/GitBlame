@@ -65,3 +65,9 @@ BlameAuthor >> model [
 BlameAuthor >> model: anObject [
 	model := anObject
 ]
+
+{ #category : #'as yet unclassified' }
+BlameAuthor >> newestCommitsFirst [
+		^commits sorted: [:a :b | 
+		a dateTime > b dateTime]
+]

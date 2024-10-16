@@ -25,6 +25,7 @@ BlameCommit >> author: anObject [
 BlameCommit >> chunkFor: aFileReference [
 	^chunks at: aFileReference ifAbsentPut: [BlameChunk new
 	file: aFileReference;
+	commit: self;
 	model: self model;
 	yourself]
 ]

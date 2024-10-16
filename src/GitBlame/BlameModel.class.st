@@ -5,7 +5,6 @@ Class {
 		'root',
 		'files',
 		'commits',
-		'chunks',
 		'authors'
 	],
 	#category : #'GitBlame-Model'

@@ -53,7 +53,7 @@ BlameAuthor >> email: anObject [
 
 { #category : #'as yet unclassified' }
 BlameAuthor >> initialize [
-	commits := OrderedCollection new
+	commits := IdentitySet new
 ]
 
 { #category : #accessing }

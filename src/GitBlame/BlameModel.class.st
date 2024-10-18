@@ -144,7 +144,7 @@ BlameModel >> gtTopAuthors: aView [
 					aMondrian nodes
 						stencil: [ :commit | 
 							BlElement new 
-							height: (((commit chunks sum: [:c | c lines size]) * 2 ln min: 20) max: 2);
+							height: (((commit chunks sum: [:c | c lines size]) ln min: 20) max: 2);
 							width: ((commit chunks size * 2 ln min: 20) max: 2);
 							zIndex: 10;
 							background: commit commitColor];

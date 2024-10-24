@@ -5,7 +5,9 @@ Class {
 		'root',
 		'files',
 		'commits',
-		'authors'
+		'authors',
+		'parallel',
+		'counter'
 	],
 	#category : #'GitBlame-Model'
 }
@@ -115,6 +117,38 @@ BlameModel >> gtOverview: aView [
 							width: 2;
 							zIndex: 10;
 							border: (BlBorder paint: (c author color) width: 1)];
+					with: file newestCommitsFirst.
+					aMondrian layout grid].
+
+					
+			aMondrian layout rectanglePack.
+		]
+
+]
+
+{ #category : #'as yet unclassified' }
+BlameModel >> gtTimeline: aView [
+	<gtView>
+	^(aView mondrian)
+			title: 'Timeline';
+		priority: 50;
+		painting: [ :aMondrian |
+			aMondrian nodes
+				stencil: [ :f | 
+					BlElement new 
+						constraintsDo: [:c |
+							c horizontal fitContent.
+							c vertical fitContent];
+						zIndex: 10;
+							border: (BlBorder paint: (Color black alpha: 0.5) width: 1)];
+				with: self largestFilesFirst forEach: [:file |
+					aMondrian nodes
+						stencil: [ :c | 
+							BlElement new 
+							height: (((c chunkFor: file fileReference) lines size * 2 ln min: 20) max: 2);
+							width: 2;
+							zIndex: 10;
+							border: (BlBorder paint: (c yearColor) width: 1)];
 					with: file newestCommitsFirst.
 					aMondrian layout grid].
 

@@ -189,6 +189,36 @@ BlameModel >> gtTopAuthors: aView [
 ]
 
 { #category : #'as yet unclassified' }
+BlameModel >> gtTopAuthorsYears: aView [
+	<gtView>
+	^(aView mondrian)
+			title: '50 authors tl';
+		priority: 45;
+		painting: [ :aMondrian |
+			aMondrian nodes
+				stencil: [ :author | 
+					BlElement new 
+						constraintsDo: [:c |
+							c horizontal fitContent.
+							c vertical fitContent];
+						zIndex: 10;
+							border: (BlBorder paint: author color width: 1)];
+				with: (self topAuthors)
+					forEach: [:author |
+					aMondrian nodes
+						stencil: [ :commit | 
+							BlElement new 
+							height: (((commit chunks sum: [:c | c lines size]) ln min: 20) max: 2);
+							width: ((commit chunks size * 2 ln min: 20) max: 2);
+							zIndex: 10;
+							background: commit yearColor];
+					with: author newestCommitsFirst.
+					aMondrian layout grid].
+			aMondrian layout rectanglePack.
+		]
+]
+
+{ #category : #'as yet unclassified' }
 BlameModel >> initialize [
 	files := OrderedCollection new.
 	commits := Dictionary new.

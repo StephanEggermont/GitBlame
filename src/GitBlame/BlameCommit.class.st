@@ -90,6 +90,6 @@ BlameCommit >> model: anObject [
 { #category : #'as yet unclassified' }
 BlameCommit >> yearColor [
 	| yearColors |
-	yearColors := #(lightGreen green lightBlue blue lightYellow yellow lightOrange orange lightRed red white).
+	yearColors := #(green cyan lightBlue blue lightYellow yellow lightOrange orange lightRed red white).
 	^Color perform: (yearColors at: ((Date today year - dateTime asDateAndTime year)+1 min: 11))
 ]

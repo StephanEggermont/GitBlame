@@ -2,14 +2,19 @@ Class {
 	#name : 'LogCommitter',
 	#superclass : 'Object',
 	#instVars : [
-		'repo',
 		'name',
-		'email'
+		'email',
+		'repos'
 	],
 	#category : 'GitBlame-LogModel',
 	#package : 'GitBlame',
 	#tag : 'LogModel'
 }
+
+{ #category : 'as yet unclassified' }
+LogCommitter >> addRepo: aRepository [
+	repos add: aRepository
+]
 
 { #category : 'accessing' }
 LogCommitter >> email [
@@ -19,6 +24,11 @@ LogCommitter >> email [
 { #category : 'accessing' }
 LogCommitter >> email: anObject [
 	email := anObject
+]
+
+{ #category : 'as yet unclassified' }
+LogCommitter >> initialize [
+	repos := Set new.
 ]
 
 { #category : 'accessing' }
@@ -32,11 +42,11 @@ LogCommitter >> name: anObject [
 ]
 
 { #category : 'accessing' }
-LogCommitter >> repo [
-	^ repo
+LogCommitter >> repos [
+	^ repos
 ]
 
 { #category : 'accessing' }
-LogCommitter >> repo: anObject [
-	repo := anObject
+LogCommitter >> repos: anObject [
+	repos := anObject
 ]

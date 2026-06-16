@@ -74,15 +74,18 @@ LogModel >> committersOverTime [
 											c vertical fitContent.
 											c horizontal fitContent];
 
-			    margin: (BlInsets all: 1);
-			    border: Color black];
+			    padding: (BlInsets all: 1);
+			    margin: (BlInsets all: 2);
+			    border: Color gray];
 	with: (self committers ) ;
 	forEach: [:committer |
 		view nodes
 			stencil: [:repo |
 				GtMondrianUMLClassElement withDefaultContainer
-					label: ((repo repositoryName,'      ') first: 6)];
-		with: repositories;
+					label: ((repo repositoryName) contractTo: 10);
+					margin: (BlInsets all: 1)
+];
+		with: committer repos ;
 	  forEach: [:repo | 
 			view nodes
 			stencil: [:com | 
@@ -157,6 +160,6 @@ LogModel >> root: aFileLocator [
 LogModel >> yearColorFor: com [ 
 	|yr yearColors|
 	yr := (com dateTime first: 4) asInteger.
-	yearColors := #(green cyan blue orange yellow red) .
-	^ Color perform: (yearColors at: (((yr - 2020) max: 1) min:6)).
+	yearColors := #(green cyan blue orange yellow red brown gray) .
+	^ Color perform: (yearColors at: (((yr - 2018) max: 1) min:8)).
 ]

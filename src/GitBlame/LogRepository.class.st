@@ -64,7 +64,7 @@ LogRepository >> committerFor: aString [
 	ifNone: [ |c |
 		c := LogCommitter new.
 		c name: aString.
-		c repo: self.
+		c addRepo: self.
 		model committers add: c.
 		c]
 		
@@ -77,7 +77,7 @@ LogRepository >> committersOverTime [
 	view nodes
 		stencil: [:aCommitter | GtMondrianUMLClassElement withDefaultContainer
 		label: (aCommitter name)];
-	with: (model committers ) ;
+	with: (model committers select: [:each | each repos includes: self]) ;
 	forEach: [:committer |
 		view nodes
 			stencil: [:com | 
@@ -115,6 +115,8 @@ LogRepository >> fillModel [
 		commit shortHash: logLine first first.
 		commit dateTime: logLine first second trim withoutQuoting.
 		committer := self committerFor: logLine first third.
+		committer addRepo: self.
+
 		commit committer: committer.
 		model commits add: commit.
 		logLine second do: [:fileLine |

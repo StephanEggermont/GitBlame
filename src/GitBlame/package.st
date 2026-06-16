@@ -1,1 +1,1 @@
-Package { #name : #GitBlame }
+Package { #name : 'GitBlame' }

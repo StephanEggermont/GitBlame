@@ -1,6 +1,6 @@
 Class {
-	#name : #BlameModel,
-	#superclass : #Object,
+	#name : 'BlameModel',
+	#superclass : 'Object',
 	#instVars : [
 		'root',
 		'files',
@@ -9,22 +9,24 @@ Class {
 		'parallel',
 		'counter'
 	],
-	#category : #'GitBlame-Model'
+	#category : 'GitBlame-Model',
+	#package : 'GitBlame',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameModel class >> on: rootDirectory [ 
 	^self new
 		root: rootDirectory;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameModel >> addFilesMatching: aString [ 
 	files addAll: ((root allChildrenMatching: aString) collect: [: each| BlameFile on: each in: self])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameModel >> assignColors [
 	|colors|
 	colors := Color wheel: (50 min: authors size).
@@ -34,7 +36,7 @@ BlameModel >> assignColors [
 			author color: (colors at: index)]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> authorAt: anAuthorName [
 	^authors at: anAuthorName ifAbsentPut: [
 		BlameAuthor new
@@ -43,17 +45,17 @@ BlameModel >> authorAt: anAuthorName [
 			yourself]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameModel >> authors [
 	^ authors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameModel >> authors: anObject [
 	authors := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> commitAt: aCommitish [
 	^commits at: aCommitish ifAbsentPut: [
 		BlameCommit new
@@ -62,7 +64,7 @@ BlameModel >> commitAt: aCommitish [
 			yourself]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> gtHundredLargest: aView [
 	<gtView>
 	^(aView mondrian)
@@ -94,7 +96,7 @@ BlameModel >> gtHundredLargest: aView [
 		]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> gtHundredLargestYear: aView [
 	<gtView>
 	^(aView mondrian)
@@ -126,7 +128,7 @@ BlameModel >> gtHundredLargestYear: aView [
 		]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> gtOverview: aView [
 	<gtView>
 	^(aView mondrian)
@@ -158,7 +160,7 @@ BlameModel >> gtOverview: aView [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> gtTimeline: aView [
 	<gtView>
 	^(aView mondrian)
@@ -190,7 +192,7 @@ BlameModel >> gtTimeline: aView [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> gtTopAuthors: aView [
 	<gtView>
 	^(aView mondrian)
@@ -220,7 +222,7 @@ BlameModel >> gtTopAuthors: aView [
 		]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> gtTopAuthorsYears: aView [
 	<gtView>
 	^(aView mondrian)
@@ -250,7 +252,7 @@ BlameModel >> gtTopAuthorsYears: aView [
 		]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> initialize [
 	files := OrderedCollection new.
 	commits := Dictionary new.
@@ -258,23 +260,23 @@ BlameModel >> initialize [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> largestFilesFirst [
 	^files sorted: [:a :b | 
 		a blame lines size > b blame lines size]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameModel >> parseBlameFiles [
 	files do: [:each | each parse]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameModel >> root: rootDirectory [ 
 	root := rootDirectory
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameModel >> runBlame [
 	| doneNr|
 	doneNr := 0.
@@ -290,7 +292,7 @@ BlameModel >> runBlame [
 				
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameModel >> topAuthors [
 	^authors select: [:each | each color  ~= Color white]
 ]

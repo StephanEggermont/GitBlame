@@ -1,6 +1,6 @@
 Class {
-	#name : #BlameCommit,
-	#superclass : #Object,
+	#name : 'BlameCommit',
+	#superclass : 'Object',
 	#instVars : [
 		'commitish',
 		'author',
@@ -8,20 +8,22 @@ Class {
 		'chunks',
 		'model'
 	],
-	#category : #'GitBlame-Model'
+	#category : 'GitBlame-Model',
+	#package : 'GitBlame',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> author [
 	^ author
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> author: anObject [
 	author := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameCommit >> chunkFor: aFileReference [
 	^chunks at: aFileReference ifAbsentPut: [BlameChunk new
 	file: aFileReference;
@@ -30,17 +32,17 @@ BlameCommit >> chunkFor: aFileReference [
 	yourself]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> chunks [
 	^ chunks
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> chunks: anObject [
 	chunks := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameCommit >> commitColor [
 	"Some indicators that a commit requires extra attention"
 	(chunks size > 50) ifTrue: [^Color red].
@@ -52,42 +54,42 @@ BlameCommit >> commitColor [
 	^Color green	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> commitish [
 	^ commitish
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> commitish: anObject [
 	commitish := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> dateTime [
 	^ dateTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> dateTime: anObject [
 	dateTime := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameCommit >> initialize [
 	chunks := Dictionary new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> model [
 	^ model
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameCommit >> model: anObject [
 	model := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameCommit >> yearColor [
 	| yearColors |
 	yearColors := #(green cyan lightBlue blue lightYellow yellow lightOrange orange lightRed red white).

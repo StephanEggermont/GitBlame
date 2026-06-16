@@ -1,6 +1,6 @@
 Class {
-	#name : #BlameAuthor,
-	#superclass : #Object,
+	#name : 'BlameAuthor',
+	#superclass : 'Object',
 	#instVars : [
 		'model',
 		'authorName',
@@ -8,65 +8,67 @@ Class {
 		'commits',
 		'color'
 	],
-	#category : #'GitBlame-Model'
+	#category : 'GitBlame-Model',
+	#package : 'GitBlame',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> authorName [
 	^ authorName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> authorName: anObject [
 	authorName := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> color [
 	^ color
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> color: anObject [
 	color := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> commits [
 	^ commits
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> commits: anObject [
 	commits := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> email [
 	^ email
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> email: anObject [
 	email := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameAuthor >> initialize [
 	commits := IdentitySet new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> model [
 	^ model
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameAuthor >> model: anObject [
 	model := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameAuthor >> newestCommitsFirst [
 		^commits sorted: [:a :b | 
 		a dateTime > b dateTime]

@@ -1,56 +1,58 @@
 Class {
-	#name : #BlameChunk,
-	#superclass : #Object,
+	#name : 'BlameChunk',
+	#superclass : 'Object',
 	#instVars : [
 		'commit',
 		'file',
 		'lines',
 		'model'
 	],
-	#category : #'GitBlame-Model'
+	#category : 'GitBlame-Model',
+	#package : 'GitBlame',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameChunk >> commit [
 	^ commit
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameChunk >> commit: anObject [
 	commit := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameChunk >> file [
 	^ file
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameChunk >> file: anObject [
 	file := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameChunk >> initialize [
 	lines := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameChunk >> lines [
 	^ lines
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameChunk >> lines: anObject [
 	lines := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameChunk >> model [
 	^ model
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameChunk >> model: anObject [
 	model := anObject
 ]

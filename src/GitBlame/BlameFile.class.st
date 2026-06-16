@@ -1,6 +1,6 @@
 Class {
-	#name : #BlameFile,
-	#superclass : #Object,
+	#name : 'BlameFile',
+	#superclass : 'Object',
 	#instVars : [
 		'fileReference',
 		'blame',
@@ -8,10 +8,12 @@ Class {
 		'commits',
 		'chunks'
 	],
-	#category : #'GitBlame-Model'
+	#category : 'GitBlame-Model',
+	#package : 'GitBlame',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameFile class >> on: aFileReference in: aModel [
 	^self new
 		fileReference: aFileReference;
@@ -19,49 +21,49 @@ BlameFile class >> on: aFileReference in: aModel [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameFile >> blame [
 	^ blame
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameFile >> blame: lines [
 	blame := lines
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameFile >> commits [
 	^commits
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameFile >> fileReference [
 	^ fileReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameFile >> fileReference: aFileReference [ 
 	fileReference := aFileReference
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameFile >> initialize [
 	commits := IdentitySet new.
 	chunks := IdentitySet new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlameFile >> model: aModel [ 
 	model := aModel
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameFile >> newestCommitsFirst [
 		^commits sorted: [:a :b | 
 		a dateTime > b dateTime]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlameFile >> parse [
 	| commit chunk author |
 	blame lines withIndexDo: [ :line :index| |parts|

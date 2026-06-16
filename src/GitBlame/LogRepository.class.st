@@ -86,7 +86,7 @@ LogRepository >> committersOverTime [
 						width: 2;
 						margin: (BlInsets all: 1);
 						background: (self yearColorFor: com))];
-			with: (model commits select: [:each | each committer = committer]).
+			with: (model commits select: [:each | (each repository = self) and: [each committer = committer]]).
 		view layout grid ].
 	view layout rectanglePack.
 ^view
@@ -166,6 +166,11 @@ LogRepository >> model: aLogModel [
 { #category : 'as yet unclassified' }
 LogRepository >> printOn: aStream [
 	repositoryName printOn: aStream
+]
+
+{ #category : 'accessing' }
+LogRepository >> repositoryName [
+	^ repositoryName
 ]
 
 { #category : 'as yet unclassified' }
